@@ -62,7 +62,6 @@ startCounter.addEventListener('click', () => {
 
   if (flatpickrInstance.latestSelectedDateObj) {
     const selectedTime = flatpickrInstance.latestSelectedDateObj;
-    console.log(selectedTime);
     countdown(selectedTime);
   }
 });
