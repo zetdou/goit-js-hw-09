@@ -9,7 +9,7 @@ function getRandomHexColor() {
 btnStart.addEventListener('click', changeColor);
 btnStop.addEventListener('click', () => {
     clearInterval(intervalId);
-    btnStart.removeAttribute('disabled', '');
+    btnStart.removeAttribute('disabled');
 });
 
 function changeColor() {
