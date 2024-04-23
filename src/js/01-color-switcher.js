@@ -6,10 +6,15 @@ function getRandomHexColor() {
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
   };
 
-btnStart.addEventListener('click', changeColor);
+btnStart.addEventListener('click', () => {
+  changeColor();
+  btnStop.removeAttribute('disabled');
+  });
+
 btnStop.addEventListener('click', () => {
     clearInterval(intervalId);
     btnStart.removeAttribute('disabled');
+    btnStop.setAttribute('disabled', '');
 });
 
 function changeColor() {

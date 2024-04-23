@@ -72,6 +72,9 @@ const daysText = document.querySelector("[data-days]");
 const hoursText = document.querySelector("[data-hours]");
 const minutesText = document.querySelector("[data-minutes]");
 const secondsText = document.querySelector("[data-seconds]");
+let interval = null;
+const timeStr = document.querySelectorAll("span.value");
+
 
 const options = {
     enableTime: true,
@@ -86,6 +89,8 @@ const options = {
       } else {
         startButton.removeAttribute("disabled");
         startButton.dataset.start = selectedDate;
+        clearInterval(interval);
+        timeStr.forEach(item => item.innerText = '00');
       }
     },
   };
@@ -95,7 +100,7 @@ flatpickr("#datetime-picker", options);
 startButton.addEventListener("click", ev => {
     const { start } = ev.currentTarget.dataset;
     const timeThen = new Date(start);
-    let interval = null;
+    
     interval = setInterval (() => {
         const timeNow = new Date();
         const timeLeft = timeThen.getTime() - timeNow.getTime();
